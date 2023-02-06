@@ -1,6 +1,15 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Postaus
 
 def postaukset(request):
-    return render(request, "blogi/postauslista.html")
+    postaukset = Postaus.objects.all()
+    context = {"postaukset": postaukset}
+    return render(
+        request,
+        "blogi/postauslista.html",
+        context,
+    )
+
+def nayta_postaus(request, id):
+    return render(request, "blogi/postaus.html")
