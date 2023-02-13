@@ -19,7 +19,8 @@ from django.urls import path
 from sovellus import views as blogi_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('postaukset/', blogi_views.postaukset),
-    path('postaus/<int:id>', blogi_views.nayta_postaus),
+    path('admin/', admin.site.urls, name=admin),
+    path('', blogi_views.postaukset, name="postauslista"),
+    path('postaus/<int:id>', blogi_views.nayta_postaus, name="nayta_postaus"),
+    path('uusi/', blogi_views.uusi_postaus, name="uusi_postaus"),
 ]
