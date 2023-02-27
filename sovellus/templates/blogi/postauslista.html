@@ -1,19 +1,14 @@
-<html>
-    <head>
-        <title>Koodausblogi</title>
-    </head>
-    <body>
-        <h1>Koodausblogi - Postaukset</h1>
-        <a href="{% url 'admin:index'%}">Django Admin</a> 
-        <br>
-        <a href="{% url 'uusi_postaus'%}">Uusi postaus</a> 
-        <ul>
-            {% for postaus in postaukset %}
-                <li>
-                    <a href="{% url 'nayta_postaus' postaus.id %}">{{postaus}}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </body>
+{% extends "blogi/base.html" %}
 
-</html>
+{% block content %}
+<h1>Postaukset</h1>
+<ul>
+    {% for postaus in postaukset %}
+    <li>
+        <a href="{% url 'nayta_postaus' postaus.id %}">
+            {{postaus}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
