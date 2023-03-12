@@ -3,20 +3,24 @@
 {% block content %}
 <h1>Postaukset</h1>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     {% for postaus in postaukset %}
-
     <div class="col">
         <div class="card">
+
             {% if postaus.kuva %}
-            <img src= "{{postaus.kuva.url}}" class="card-img-top" alt="">
+            <a href="{% url 'nayta_postaus' postaus.id %}">
+                <img src="{{postaus.kuva.url}}" class="card-img-top" alt="">
+            </a>
             {% endif %}
             <div class="card-body">
-            <h5 class="card-title">{{postaus.otsikko}}</h5> {# Tähän tulee otsikko #}
-            <p class="card-text">{{postaus.otsikko}}</p> {% comment "" %} tähän tulee yleensä johdatteleva teksti (ingressi), nyt siinä on blogin teksti{% endcomment %}
-          </div>
+                <h5 class="card-title">{{postaus.otsikko}}</h5> {# Tähän tulee otsikko #}
+                <p class="card-text">{{postaus.teksti}}</p> {% comment "" %} tähän tulee yleensä johdatteleva teksti (ingressi), nyt siinä on blogin teksti{% endcomment %}
+                <a href="{% url 'nayta_postaus' postaus.id %}" class="btn btn-primary">Lue</a>
+            </div>
         </div>
     </div>
     {% endfor %}
+</div>
+
 {% endblock %}
