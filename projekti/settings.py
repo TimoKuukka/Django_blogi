@@ -18,6 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Määritä MEDIA ROOT, joka on tiedostopolku kansioon, jonka alle tallenetaan
 # ladatut tiedostot
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Määritä MEDIA_URL. Se kertoo mitä lisätään ladattujen tiesdostojen ositteiden (URL) alkuun.
 MEDIA_URL = "/media/"
 
 # Quick-start development settings - unsuitable for production
