@@ -15,7 +15,8 @@
             {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{postaus.otsikko}}</h5> {# Tähän tulee otsikko #}
-                <p class="card-text">{{postaus.teksti}}</p> {% comment "" %} tähän tulee yleensä johdatteleva teksti (ingressi), nyt siinä on blogin teksti{% endcomment %}
+                <p class="card-text">{{postaus.teksti}}</p>
+                <p class="card-text">{{postaus.luo_ingressi}}</p> {% comment "" %} tähän tulee yleensä johdatteleva teksti (ingressi), nyt siinä on blogin teksti{% endcomment %}
                 <a href="{% url 'nayta_postaus' postaus.id %}" class="btn btn-primary">Lue</a>
             </div>
         </div>
